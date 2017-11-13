@@ -2,7 +2,11 @@
 \pagestyle{plain}
 \hyphenation{op-tical net-works semi-conduc-tor}
 \begin{document}
-\title{W3C Web of Things Security Model}
+\title{
+Distributed Security Risks and Opportunities \\
+in the \\
+W3C Web of Things
+}
 \author{
   \IEEEauthorblockN{Michael McCool}
   \IEEEauthorblockA{Intel Corporation\\
@@ -34,12 +38,11 @@
 \input{abstract.tex}
 \end{abstract}
 
+% Introduction: state main goals and context of paper
 \section{Introduction}
 \input{intro.tex}
 
-\section{Related Work}
-\input{related.tex}
-
+% Explain background (in this case, WoT) 
 \section{Web of Things}
 
 \subsection{Architecture}
@@ -51,9 +54,15 @@
 \subsection{Usage Scenarios}
 \input{scenarios.tex}
 
+% Best practices in IoT that are *common* to WoT... and that we will NOT focus on
+% We want to explain in particular how WoT is different
+\section{Related Work}
+\input{related.tex}
+
+% What are some specific interesting problems/solutions that WoT brings?
 \section{Risks and Opportunities}
 
-\section{Practical Pitfalls}
+\subsection{Local Links}
 \input{pitfalls.tex}
 
 \subsection{Vulnerability Scanning}
@@ -65,7 +74,7 @@
 \subsection{Secure Discovery}
 \input{discover.tex}
 
-\subsection{Metadata for Security Mechanisms}
+\subsection{Enabling Distributed Security}
 \input{metadata.tex}
 
 \section{Conclusion}
