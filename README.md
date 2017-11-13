@@ -11,7 +11,7 @@ You need to install LaTeX.  On Ubuntu, you can use
     sudo apt-get install texlive-full
 ```
 This installs a full version of TeXLive which is quite large;
-you will need a couple of GB of disk.
+you will need at least 3GB of free disk space.
 
 ## Compile Paper
 After installation, you will be able to compile the paper with
