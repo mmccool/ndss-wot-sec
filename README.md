@@ -1,6 +1,6 @@
 # NDSS DISS 2018 Workshop Paper on WoT Security Model
-Submission to the NDSS 2017 Workshop on Decentralized IoT Security and Standards (DISS):
-[DISS](https://www.ndss-symposium.org/ndss2018/cfp-ndss2018-diss/).
+Submission to the 
+[NDSS 2018 Workshop on Decentralized IoT Security and Standards (DISS)](https://www.ndss-symposium.org/ndss2018/cfp-ndss2018-diss/).
 Formatting follows the template and instructions 
 [here](https://www.ndss-symposium.org/ndss2018/ndss-2018-templates/).
 
