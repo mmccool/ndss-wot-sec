@@ -19,11 +19,15 @@ After installation, you will be able to compile the paper with
     pdflatex ndss-wot-sec.tex
     bibtex ndss-wot-sec
     pdflatex ndss-wot-sec.tex
+    pdflatex ndss-wot-sec.tex
 ```
 which will generate [ndss-wot-sec.pdf](ndss-wot-sec.pdf).
 You generally only need to run the `bibtex` command and the second run
 of `pdflatex` if you updated a reference and the bibliography should be 
-updated.  Note also the use of `pdflatex` to generate a PDF file
+updated.  The third run of `pdflatex` is only needed if the second run
+notes that it should be rerun to handle updated references.
+
+Note also the use of `pdflatex` to generate a PDF file
 directly.
 
 ## Themes
