@@ -2,7 +2,7 @@
 Submission to the 
 [NDSS 2018 Workshop on Decentralized IoT Security and Standards (DISS)](https://www.ndss-symposium.org/ndss2018/cfp-ndss2018-diss/).
 Formatting follows the template and instructions 
-[here](https://www.ndss-symposium.org/ndss2018/ndss-2018-templates/).
+[here](https://www.ndss-symposium.org/ndss2018/ndss-2018-templates/), which follows the IEEE Transactions paper style.
 
 ## Instructions
 ### Install TexLive
