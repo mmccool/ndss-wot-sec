@@ -22,5 +22,6 @@ After installation, you will be able to compile the paper with
 ```
 which will generate [ndss-wot-sec.pdf](ndss-wot-sec.pdf).
 You generally only need to run the `bibtex` command and the second run
-of latex if you updated a reference and the bibliography should be 
-updated.
+of `pdflatex` if you updated a reference and the bibliography should be 
+updated.  Note also the use of `pdflatex` to generate a PDF file
+directly.
