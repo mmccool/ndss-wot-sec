@@ -29,7 +29,7 @@ directly.
 ## Themes
 Here are some possible topics to discuss in the paper, targetting
 the "decentralized security" focus of the workshop:
-* Vulnerability scanning using metadata. There is both risk and opportunity.
-* End-to-end secure adaptation: translate payloads in secure endpoints, not at bridges.
-* Secure semantic searches.  How to ensure only authorized things are searched when using federated semantic searches?
-* Metadata for distributed security and payment mechanisms, eg. Interledger.
+* **Vulnerability scanning using metadata:** There is both risk and opportunity.
+* **End-to-end secure adaptation:** translate payloads in secure endpoints, not at bridges.
+* **Secure semantic searches:**  How do we ensure only authorized Things are searched when using federated semantic searches?
+* **Metadata for distributed security and payment mechanisms:** Blockchain, Interledger, etc.
