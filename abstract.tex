@@ -1,19 +1,13 @@
 The W3C Web of Things (WoT) WG has been developing an interoperability standard for IoT devices that includes as
 its main deliverable a ``Thing Description'': a standardized representation the metadata of an 
 IoT device, including in particular its network interface, but also allowing for semantic annotation.
-In this paper, we discuss the implications of standardized metadata on security.
-Standardized metadata has both risks and opportunities.
-On the one hand, information about what devices can do makes it easier to scan for devices with 
-vulnerabilities.  However, this risk can in fact be an opportunity as scanning for devices with
-vulnerabilities is necessary to identify devices whose vulnerabilities need to be mitigated.
-
-Pervasive metadata has one major additional benefit: it enables end-to-end security in multistandards networks.
-Specifically, if metadata is used to push payload adaptation to endpoints then the need to unpack and
-reformat data in gateways can be eliminated, and payloads can be encrypted end-to-end.  This contrasts
-with systems that use local bridging between multiple IoT standards which requires opening (and usually
-deencrypting) data in potentially-vulnerable gateways.
-
-The metadata also needs to be secured.  Thing descriptions can be delivered from devices themselves, or
-from directory services. Directory services can also support discovery, including discovery based on
-semantic search.  This raises the problem of how discovery can be constrained to return data that
-the searcher is authorized to access.
+Relative to other approaches to IoT, such metadata has at least four major implications.
+First, it allows for system-wide vulnerability analysis, 
+which can be both a risk and an opportunity.
+Second, metadata can enable end-to-end security in multistandards networks,
+avoiding exposing data within bridges otherwise needed for connecting standards pairwise.
+Third, metadata supports service and device discovery,
+which raises the question of how to limit discovery to authorized agents.
+Fourth, metadata can enable distributed security mechanisms for access control and micropayments.
+To the extent that metadata access can be decentralized, decentralized mechanisms for security can
+be supported, although several practical issues currently make this difficult to fully support.
