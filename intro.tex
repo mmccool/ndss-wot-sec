@@ -23,18 +23,19 @@ automation, that are now being connected to the IoT.
 These devices represent major investments and cannot be economically replaced with newer,
 standards-conforming devices.  This is the ``brownfield'' problem.
 In addition, today devices are also being deployed that have not been validated
-against any particular standard, but may use common technologies such as JSON and HTTP.
+against any particular standard,
+even if they use common technologies such as JSON and HTTP.
 
 As an alternative, the W3C Web of Things WG has been developing a \emph{descriptive} 
 approach to IoT interoperability.
 In this approach,
-metadata is provided that describes how to communicate with a 
-particular device.
+metadata is provided that describes how to communicate with each particular device.
 The metadata itself is standardized but flexible enough to describe a wide variety of
 IoT network interfaces.
 With this approach, devices can but do not have to be prevalidated against 
 a particular standard before being deployed.
-They can be described after the fact, solving the brownfield problem and allowing
+They can be described after the fact,
+solving the brownfield problem and allowing
 older devices to and devices satisfying different standards to be integrated into
 a unified system.  
 
@@ -47,11 +48,13 @@ security and this make cause integration challenges, even if the necessary
 information is provided in the metadata.
 
 Beyond this basic concern, pervasive metadata raises several other issues
-from a security perspective.  In this paper we discuss four major issues:
+from a security perspective.
+In this paper we discuss four major issues:
 \begin{itemize}
-\item \textbf{Vulnerability scanning.}
-Providing information about what devices can do makes it easier to scan for devices with 
-vulnerabilities.  It may also be possible to plan attacks that take advantage of vulnerabilities
+\item \textbf{Vulnerability analysis.}
+Providing information about what devices can do makes it easier to 
+automatically scan for devices with vulnerabilities.
+It may also be possible to plan attacks that take advantage of vulnerabilities
 in multiple devices. 
 However, this risk can in fact be an opportunity as scanning for devices with
 vulnerabilities is necessary to identify devices whose vulnerabilities need to be mitigated.
