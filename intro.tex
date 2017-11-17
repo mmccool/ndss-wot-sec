@@ -2,83 +2,97 @@ The economic impact of the IoT is strongly influenced by how well devices from
 different manufacturers can interoperate.
 Very often interoperability is taken for granted when estimating the business
 benefit of IoT. 
-However, a recent study \cite{McK2015a}
-concluded that 40\% to 60\% of the 
-benefit of IoT will be unattainable if devices do \emph{not} interoperable,
+However, if devices do \emph{not} interoperate,
+a recent study \cite{McK2015a} concluded that 40\% to 60\% of the 
+benefit of IoT will be unattainable,
 due to use cases that cannot be satisfied by a single manufacturer.
 
 Unfortunately full interoperability is hard to acheive.
 There are currently many competing IoT standards under development.
 Most of these standards are prescriptive.
 In a prescriptive standard, devices are validated against specific requirements
-and typically all validated devices will interoperate.
+and typically the goals is that devices satisfying that standard will interoperate.
 In addition, it is possible to bridge multiple standards so that
-devices validated against one prescriptive standard can communicate with
+devices validated against one such standard can communicate with
 devices using another standard by translating communication protocols and payloads.
+Of course if one standard comes to dominate bridging will be unnecessary,
+but so far such unification seems to be elusive and may be impossible due to
+divergent requirements in different but overlapping IoT subdomains.
 
-However, the prescriptive approach has some weaknesses.
+Unfortunately the prescriptive approach has some weaknesses.
 In particular, there are always going to be devices that follow older standards.
 There are decades-old devices in particular domains, such as building and factory
-automation, that are now being connected to the IoT.
-These devices represent major investments and cannot be economically replaced with newer,
-standards-conforming devices.  This is the ``brownfield'' problem.
-In addition, today devices are also being deployed that have not been validated
-against any particular standard,
-even if they use common technologies such as JSON and HTTP.
+automation, that are just now being connected to the IoT.
+These devices often represent major investments and cannot be economically replaced with newer,
+standards-conforming devices.
+This is the ``brownfield'' problem.
+In addition, new devices are being deployed today that have not been validated
+against any particular IoT standard,
+even if they use other standards such as JSON and HTTP.
 
-As an alternative, the W3C Web of Things WG has been developing a \emph{descriptive} 
+As an alternative to the prescriptive approach,
+the W3C Web of Things (WoT) Working Group has been developing a \emph{descriptive} 
 approach to IoT interoperability.
 In this approach,
 metadata is provided that describes how to communicate with each particular device.
 The metadata itself is standardized but flexible enough to describe a wide variety of
 IoT network interfaces.
-With this approach, devices can but do not have to be prevalidated against 
+With this approach,
+devices can but do not have to be prevalidated against 
 a particular standard before being deployed.
-They can be described after the fact,
-solving the brownfield problem and allowing
-older devices to and devices satisfying different standards to be integrated into
-a unified system.  
+They can be described after the fact, and do not need any modification to be
+used as part of a Web of Things system.
+This solves the brownfield problem and allows
+older devices as well as devices satisfying different IoT 
+standards to be integrated into a unified system.  
 
 This approach has both risks and opportunities from a security point of view.
 
-Most obviously, devices may vary widely in their support for security,
-so the system needs to manage different levels of trust for different devices.
-Devices from different manufacturers may also take different approaches to
-security and this make cause integration challenges, even if the necessary
+Most obviously, IoT devices, even those conforming to a prescriptive IoT standard,
+may vary widely in their support for security.
+Therefore a Web of Things system
+needs to manage different levels of trust for different devices.
+Devices from different ecosystems or manufacturers may also take different approaches to
+security and may use different security mechanisms. 
+This may cause integration challenges, even if the necessary
 information is provided in the metadata.
 
 Beyond this basic concern, pervasive metadata raises several other issues
 from a security perspective.
 In this paper we discuss four major issues:
+% NOTE: want to use {description} here but it seems to be broken...
 \begin{itemize}
-\item \textbf{Vulnerability analysis.}
+\item \textbf{Vulnerability analysis:}
 Providing information about what devices can do makes it easier to 
 automatically scan for devices with vulnerabilities.
-It may also be possible to plan attacks that take advantage of vulnerabilities
-in multiple devices. 
-However, this risk can in fact be an opportunity as scanning for devices with
-vulnerabilities is necessary to identify devices whose vulnerabilities need to be mitigated.
-\item \textbf{End-to-end security.}
-Metadata enables end-to-end security in multistandards networks.
+An attacker may also use this information to plan attacks that take advantage of 
+vulnerabilities in multiple devices. 
+However, for the system manager, scanning can also be an opportunity 
+to identify devices whose vulnerabilities need to be mitigated.
+\item \textbf{End-to-end security:}
+Metadata enables end-to-end security in networks of IoT devices using multiple standards.
 If metadata is used to push payload adaptation to endpoints then 
-communication payloads can be encrypted end-to-end.  This contrasts
-with systems that use local bridging between multiple IoT standards
-which requires opening (and usually deencrypting) data in potentially-vulnerable gateways.
-\item \textbf{Secure discovery.}
-Information about how to use a service, and ideally even its existence, should not
+communication payloads can be encrypted end-to-end.  
+This contrasts with systems that use local bridging to connect devices from multiple IoT standards.
+Local bridges require opening (and usually deencrypting) data in potentially-vulnerable gateways.
+\item \textbf{Secure discovery:}
+Information about how to use a service, 
+and ideally even its existence, should not
 be disclosed to agents without the authorization to use it.
 The WoT approach allows powerful semantic searches to be used for discovery.
 How can this capability be made available while still securing the metadata?
-\item \textbf{Security Mechanism Enabling.}
+\item \textbf{Security mechanism enabling:}
 Metadata may be provided to enable specific security mechanisms,
 as well as features with security implications such as payment or scripting.
 What mechanisms are needed and what data needs to be provided?
+Also, depending on how the metadata is made available, it may or may not be 
+possible to support decentralized approaches to security.
 \end{itemize}
 
 The next few sections first introduce the W3C Web of Things draft standard,
 focusing on the Thing Description metadata format.  
-Then the security model for the WoT will be introduced.
-This includes a model of stakeholders, assets, attackers, and threats.
-Once this context has been established, we will discuss in detail these
+Then the security model for the WoT will be introduced,
+which includes a model of stakeholders, assets, attackers, and threats.
+Once this context has been established, we will discuss in detail the above
 four issues.
 
