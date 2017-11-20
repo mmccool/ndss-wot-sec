@@ -1,6 +1,10 @@
 \documentclass[conference]{IEEEtran}
 \pagestyle{plain}
 \hyphenation{op-tical net-works semi-conduc-tor}
+
+\usepackage{todonotes}
+\usepackage[tight,footnotesize]{subfigure}
+
 \begin{document}
 \title{
 Distributed Security Risks and Opportunities \\
@@ -45,13 +49,17 @@ W3C Web of Things
 % Explain background (in this case, WoT) 
 \section{Web of Things}
 
+Nowadays the amount of different IoT devices around us is constantly increasing in all areas starting from smart home and ending up with industry automation. 
+All these devices target different use cases, have different underlying implementations and connected using different communication protocols.
+In this light a Web of Things (WoT)~\cite{Wot2017arch} aims to provide a single interoperability layer between IoT devices with a metadata defined in order to describe a generic networking interface exposed by an IoT device.
+
 \subsection{Architecture}
 \input{arch.tex}
 
 \subsection{Threat Model}
 \input{threats.tex}
 
-\subsection{Usage Scenarios}
+\subsection{Typical Deployment Scenario}
 \input{scenarios.tex}
 
 % Best practices in IoT that are *common* to WoT... and that we will NOT focus on
@@ -61,6 +69,7 @@ W3C Web of Things
 
 % What are some specific interesting problems/solutions that WoT brings?
 \section{Risks and Opportunities}
+\label{sec-risks-opportunities}
 
 \subsection{Local Links}
 \input{pitfalls.tex}
