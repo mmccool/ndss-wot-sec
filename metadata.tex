@@ -1,6 +1,22 @@
-\textsf{Metadata for distributed security and payment mechanisms.  
-Tokens.
-Interledger addresses.
-Nested security.
-}
+%\textsf{Metadata for distributed security and payment mechanisms.  
+%Tokens.
+%Interledger addresses.
+%Nested security.
+%}
+
+Designing the correct format for the TD security metadata field isn't a straightforward task.
+Many things must be taken into account: various WoT (and more generic IoT) deployment scenarios and configurations, underneath networking protocols and their security mechanisms, overall scalability etc.
+
+A data packet in a WoT network can go over many intermediate entities, including gateways, proxies etc.
+Depending on the concrete setup, some of these entities might want to perform authentication and authorization of the requester and therefore the security metadata in TD should carry all needed information, i.e. what types of credentials are required by each entity, how to obtain them etc.
+
+For example let's consider the deployment scenario in Figure~\ref{fig-wot-scenario}.
+Suppose the forwarding proxy requires authentication of any request before passing it to the local network.
+Additionally let's assume that the WoT gateway performs authentication at least for some actions provided by the WoT Thing, i.e. opening a garage door (critical action) requires a certain credential.
+Both of these authentication methods (potentially fully different) and all associated information must be specified in the TD that the WoT Client receives from the Things Directory or otherwise the request to open the garage door cannot be performed.
+
+Generalizing the above example, there might be N sets of fully independent security metadata that should be possible to embed into a Thing Description.
+Moreover, when a Thing Description is composed, these sets can be provided by separate entities: a gateway might only specify the security metadata for accessing actions defined in TD, while the forwarding proxy adds the metadata required for successful authentication of incoming requests.
+This means that there has to be a way to limit what security meatadata is allowed to be provided by what entity and also it must be possible for the WoT client to verify the overall integrity of resulting TD. 
+ 
 
