@@ -1,1 +1,42 @@
-\textsf{Vulnerability scanning using metadata.}
+% \textsf{Vulnerability scanning using metadata.}
+The purpose of the Thing Descriptions is to enable easier discovery and use of 
+devices.  However, the flip side of this is that it may also become easier
+for attackers to discover vulnerable devices, or to infer private information
+simply from the type of devices available.
+
+The first line of defense is to protect access to discovery services such
+as Thing Directories.  If Thing Directories can only be accessed by authorized
+users, a number of types of attacks become more difficult.  Since a Thing
+Directory is simply a web service, it can be protected with normal web service
+authorization mechanisms.  However, a given system may provide other means of 
+discovery, such as broadcast responses or extended DNS entries.  These may not
+be as easy to protect.  Note that in order to support a protected Thing Directory
+a protected onboarding process is needed to associate devices with a given
+Thing Directory and of course to provide authorized users with appropriate
+credentials to access the Thing Directory.
+
+Assuming an attacker can access Thing Descriptions, however, they may be
+able to exploit them in various ways.  First, they could try to analyze the 
+interactions available themselves for known vulnerabilities.  While the 
+Thing Descriptions intentionally omit information about the software stack
+providing the service, an attacker may be able to use fingerprinting to
+associate a particular Thing Description to a particular device with known
+vulnerabilities.  The vulnerabilities may not even be over the network;
+for instance, an attacker may search for ``smart locks'' that can be defeated
+with a known physical attack.
+The flip side of this, however, is that a System Maintainer can apply the same
+tools to scan for devices with vulnerabilities, in order to identify devices
+at risk so that mitigations can be put in place (such as scheduling updates to
+a device's firmware).
+Unlike a malicious attacker, the System Maintainer also has the advantage that
+they can legitimately access \emph{all} Thing Descriptions in a system.
+
+Even if an attacker cannot determine vulnerabilities, they may still be able
+to determine personal information about a user by the kinds of devices they
+have installed.  For example, knowing that someone has a baby monitor lets you
+infer that they probably have a young child.
+Semantic tags make this information explicit but even without tagging,
+fingerprinting may be able to associate a set of interactions with
+a specific class of devices.  The mitigation of this kind of attack is to
+protect the Thing Descriptions themselves and make them available
+\emph{only} to authorized users.
