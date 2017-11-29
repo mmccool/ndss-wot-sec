@@ -1,2 +1,55 @@
-\textsf{Secure semantic searches.  How do we ensure only the data permitted for a user is used in a search?}
-Some possibly relevant papers: \cite{Thura2005a,Xia2014a}.
+% \textsf{Secure semantic searches.  How do we ensure only the data permitted for a user is used in a search?}
+% Some possibly relevant papers: \cite{Thura2005a,Xia2014a}.
+One of the benefits provided by the WoT approach is to
+enable the use of powerful semantic searches during discovery.
+However, this introduces several issues related to security.
+
+First of all, semantic searches can be abused to create DoS attacks.
+If arbitrary SPARQL endpoints are provided by Thing Directory
+services, semantic searches can be specified
+that can consume large amounts of resources,
+rendering the Thing Directories unavailable to other users.
+This can be mitigated by either limiting the power of searches
+that can be specified, or my limiting the amount of processing
+power that can be used in a specific search.
+
+In the first approach, rather than providing a full
+SPARQL endpoint, a directory services may provide a more specialized
+search interface that only allows searches for a conjunction of terms
+and does not allow, for instance, use of arbitrary inference rules
+or use of other SPARQL endpoints in a federated search.
+The problem with this approach is that by limiting the power
+of the searches that may be specified, we are also limiting the
+potential benefit.
+
+The second approach to mitigate DoS attacks via pathologically
+expensive semantic queries is to use an architecture for the 
+search engine that can enforce resource quotas on individual queries.
+For example, each search could be spawned in a new process and Linux
+process limits could be used to enforce processing quotas. In addition,
+the number of searches that can be processed at the same time would
+have to be limited to avoid creating too many processes.
+If either limit is exceeded the server would return an appropriate
+error code.  If the query processing quota is exceeded, the client
+would have to reformulate their query.  If the server is too busy,
+the client would have to retry the query later.
+
+Of course creating a new process for each search would be expensive,
+so ideally the search engine itself would have lighter-weight
+mechanisms to track resource consumption and enforce quotas.
+
+There is another class of risks with semantic searches: 
+inferencing.  Semantic searches can infer information that is
+not explicitly present in the database: that is point!
+However, it is possible that an attacker could use this capability
+to invade someone's privacy.  For example, they could infer
+personal information, such as marital status, from the ownership
+of certain combinations of devices.
+While it is difficult to prevent inference attacks in general,
+we should at least design semantic search engines to not use 
+data for inference that would not be directly available to the
+person posing the query in the first place 
+\cite{Thura2005a,Xia2014a}.  
+As with the other class of risks we mentioned,
+mitigation requires restricting the distribution of Thing Description
+data to authorized users only.

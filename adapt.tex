@@ -1,1 +1,31 @@
-\textsf{End-to-end secure adaptation by pushing payload transformation to endpoints.}
+% \textsf{End-to-end secure adaptation by pushing payload transformation to endpoints.}
+In a typical multistandard IoT system,
+bridges may be needed to connect devices
+conforming to different standards.
+For example,
+to connect to an AllJoyn device from a controller
+designed to connect to OCF devices, an OCF-to-AllJoyn bridge
+may be needed to translate both the protocol and the payload.
+In general, multiple bridges could be involved: the
+apparent AllJoyn device could in fact be a oneM2M device
+being made available over yet another bridge.
+
+Unfortunately bridges introduce a potential security vulnerability.
+If the bridge devices can be compromised,
+they have full access to the
+data being carried to and from the device can can stage a 
+variety of attacks: 
+modifying or deleting data,
+injecting false data and events,
+or privacy invasion.
+
+The WoT enables a way around this problem using end-to-end encryption.
+Basically, rather than adapting payloads in a point-to-point fashion,
+adaptation should take place at one of the endpoints, ideally the
+one with greater capability.  The endpoint doing the adaptation should
+look at the metadata for the target endpoint, adapt its payload for that
+target, and then use end-to-end encrypted communication.
+It may still be necessary to use bridges in between to adapt protocols
+(for example, bridging from HTTPS on the internet to CoAPS over a local
+network) but the payloads can remain encrypted.
+
