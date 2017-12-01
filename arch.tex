@@ -1,22 +1,45 @@
 %\textsf{Web of Things architecture \cite{Wot2017arch}, Thing Description \cite{Wot2017td} and
 %scripting API \cite{Wot2017script}.}
-
-The WoT architecture\cite{Wot2017arch} defines three basic entities that can be organized in a various set of configurations and topologies based on a concrete deployment scenario:
+The WoT architecture\cite{Wot2017arch} defines three basic entities
+that can be organized into various configurations and topologies 
+based on a concrete deployment scenario:
 
 \begin{itemize}
-	\item A \textbf{WoT Thing} represents a physical or virtual IoT device and exposes a network-facing API for interaction.
-	Each WoT Thing has an associated Thing Description (TD)\cite{Wot2017td} that is a set of metadata describing relevant information about the Thing, such as general information, available interactions, communication and security mechanisms.
-	A typical example of a WoT Thing might be a garage door controller, providing a number of actions that can be performed on a garage door, i.e. \textit{open}, \textit{close}, etc.
+	\item A \textbf{WoT Thing} represents a physical or virtual IoT device 
+        and exposes a network-facing API for interaction.
+	Each WoT Thing has an associated Thing Description (TD)\cite{Wot2017td}. 
+        A TD encodes a set of metadata describing relevant information about a Thing,
+        such as semantic categorization, available interactions, and communication and security mechanisms.
+	A typical example of a WoT Thing might be a garage door controller.
+        Such a controller would provide a number of actions that can be performed on a garage door, 
+        i.e. \textit{open}, \textit{close}, etc. and would provide network interfaces to invoke
+        each of these.
+        Typically a WoT Thing plays the network role of a server as it responds to
+        but does not initiate interactions.
 	\item A \textbf{WoT Client} is an entity that wants to perform an action on a WoT Thing.
-	It is able to consume a TD provided by a WoT Thing and issue actions on exposed WoT interfaces.
-	For example a WoT Client might be a browser or an application on a user's smartphone that allows user to operate the garage door controller. 
-	\item A \textbf{WoT Servient} can be viewed as a combination of above two, i.e. an entity that is both providing one or more WoT things and also at the same time is able to operate as WoT Client on other WoT things.
-	An example of a WoT servient is a home gateway device that acts as a WoT client towards home appliance WoT things (such as different lights and sensors) and also exposes some higher level virtual devices (such as all the lights in the living room) in form of the WoT Things available for user's smartphone WoT Client.
+	It is able to consume a TD provided by (or for) a WoT Thing and issue actions on 
+        the target's network interfaces.
+	For example a WoT Client might be a browser or an application on a user's smartphone
+        that allows the user to invokve one of the actions provided by the garage door controller. 
+	\item A \textbf{WoT Servient} can be viewed as a combination of a client and server:
+        an entity that is both providing one or more WoT Thing interfaces (as a server) and
+        at the same time is able to operate as WoT Client to invoke interactions on other WoT Things.
+	An example of a WoT Servient would (a service running on a) home gateway device 
+        that acts as a WoT Client towards home appliance WoT Things
+        (such as different lights and sensors) and also exposes some higher level
+        virtual devices (such as the collection of all the lights in the living room)
+        in form of additional WoT Things available for a WoT Client running on a user's smartphone.
 \end{itemize}
 
 Internally a typical architecture of a WoT Servient is shown in Figure~\ref{fig-fservient}. 
-In addition to a Thing Description (TD) it also has WoT Binding Templates that can be used to instantiate a TD for a particular IoT protocol binding, such as OCF, COAP etc. 
-The last remaining part is WoT Scripting API, which is an optional component that allows implementing the Thing logic in a higher-level programming language and browser-like environment (such as JavaScript). 
+In addition to a Thing Description (TD) it also has WoT Binding Templates 
+that can be used to instantiate a TD for a particular IoT protocol binding, 
+such as OCF, HTTP(S), COAP etc. 
+Internally a WoT Servient can also host a WoT Runtime and
+a WoT Scripting API.
+The WoT Scripting API is an optional component that allows 
+implementing logic of an application Servient in a standardized way
+using a higher-level programming language (such as JavaScript). 
 
 \begin{figure}[!t]
 \centering

@@ -1,17 +1,40 @@
 %\textsf{A basic intro to to the WoT threat model \cite{Wot2017sec}.}
 
-Due to the large diversity of devices, use cases, deployment scenarios and various requirements for WoT Things, it is impossible to define a single WoT threat model that would fit every case.
-Instead we have created an overall WoT threat model~\cite{Wot2017sec} that can be adjusted by OEMs or other WoT system users or providers based on their concrete security requirements.
+Due to the large diversity of devices,
+use cases,
+deployment scenarios 
+and requirements for WoT Things,
+it is impossible to define a single WoT threat model
+that would fit every case.
+Instead we have created an overall WoT threat model~\cite{Wot2017sec} 
+that can be adjusted by OEMs or other WoT system users or providers
+based on their concrete security requirements.
 
 %The WoT threat model defines the following key WoT Assets that are important from security point of view:	\textit{Thing Description}, \textit{Thing User Data} (any user data transferred via WoT network, such as video streams, sensor data etc.), \textit{Thing Provider Data} (WoT application scripts and their configuration data), \textit{WoT Basic Security Metadata} (all provisioned security medatada), \textit{WoT Controlled Environment} (physical environment that can be affected by WoT Things), \textit{WoT Thing and Infrastructure Resources} (resources of devices providing WoT Things and overall WoT network) and \textit{WoT Behavior Metrics} (all indirectly transmitted information).
 %Some of these assets might be absent and/or have different trust model (i.e who should have a legitimate access and to what extent) depending on deployment scenario. 
 
-The threat model defines security-relevant WoT assets and a set of WoT threats on these assets that can be in- or out-of-scope based deployment scenario, security objectives, risks etc.
-For example, in a smart home scenario involving WoT things that record audio/video information a privacy aspect is very important and therefore this type of data has high confidentiality requirements.
-On another hand, in industry automation scenario involving WoT things that control some safety-critical infrastructure, confidentiality might not be the highest priority, but availability of the WoT Thing and Infrastructure Resources and protection of WoT Controlled Environment is of topmost importance.
+The threat model defines security-relevant WoT assets 
+and a set of WoT threats on these assets.
+Threats can be in or out of scope based on the deployment scenario,
+security objectives, acceptable risks, and other factors.
+For example,
+in a smart home scenario involving WoT Things that record audio/video
+information, the privacy aspect would be very important and 
+therefore this scenario would have high confidentiality requirements.
+On another hand,
+in an industry automation scenario involving WoT Things that 
+control some safety-critical infrastructure,
+confidentiality might not be the highest priority.
+Instead, service availability
+and protection of the environment controlled by the Thing 
+may be of topmost importance.
 
-Being a distributed system brings an additional complexity angle to the WoT Threat Model and the choice of relevant security mitigations.
-One cannot anymore rely on standard communication infrastructure and protocols (like HTTPS) to provide an end-to-end security between all communicating parties, and instead WoT needs to enable supporting different set of security mechanisms (potentially nested or interdependent) that can be combined into single end-to-end security solution.  
+Being a distributed system brings additional complexity 
+to the WoT Threat Model and the choice of relevant security mitigations.
+One cannot rely on standard communication infrastructure and protocols 
+(like HTTPS) to provide an end-to-end security between all communicating
+parties.
+Instead WoT needs to support multiple security mechanisms 
+(potentially nested or interdependent) 
+that can be combined into single end-to-end security solution.  
   
- 
-

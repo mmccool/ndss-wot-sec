@@ -1,22 +1,25 @@
-The economic impact of the IoT is strongly influenced by how well devices from 
+The economic impact of the IoT will be strongly dependent on how well devices from 
 different manufacturers can interoperate.
 Very often interoperability is taken for granted when estimating the business
 benefit of IoT. 
 However, if devices do \emph{not} interoperate,
 a recent study \cite{McK2015a} concluded that 40\% to 60\% of the 
 benefit of IoT will be unattainable,
-due to use cases that cannot be satisfied by a single manufacturer.
+due to the inability to address use cases that cannot be satisfied by a single manufacturer.
 
 Unfortunately full interoperability is hard to achieve.
-There are currently many competing IoT standards under development.
+There are currently many competing IoT standards under development,
+each of which is attempting to address this problem.
 Most of these standards are prescriptive.
-In a prescriptive standard, devices are validated against specific requirements
-and typically the goals is that devices satisfying that standard will interoperate.
+In a prescriptive standard,
+devices are validated against specific requirements.
+Typically the goal is that devices validated against particular standard will interoperate with
+other devices also validated against that standard.
 In addition, it is possible to bridge multiple standards so that
-devices validated against one such standard can communicate with
+devices validated against one standard can communicate with
 devices using another standard by translating communication protocols and payloads.
-Of course if one standard comes to dominate bridging will be unnecessary,
-but so far such unification seems to be elusive and may be impossible due to
+Of course if one standard comes to dominate bridging will be unnecessary.
+However, so far such unification seems to be elusive and may be impossible due to
 divergent requirements in different but overlapping IoT subdomains.
 
 Unfortunately the prescriptive approach has some weaknesses.
@@ -26,21 +29,23 @@ automation, that are just now being connected to the IoT.
 These devices often represent major investments and cannot be economically replaced with newer,
 standards-conforming devices.
 This is the ``brownfield'' problem.
-In addition, new devices are being deployed today that have not been validated
+In addition,
+new devices are being deployed today that have not been validated
 against any particular IoT standard,
 even if they use other standards such as JSON and HTTP.
 
 As an alternative to the prescriptive approach,
 the W3C Web of Things (WoT) Working Group has been developing a \emph{descriptive} 
 approach to IoT interoperability.
-In this approach,
+In the descriptive approach,
 metadata is provided that describes how to communicate with each particular device.
 The metadata itself is standardized but flexible enough to describe a wide variety of
 IoT network interfaces.
 With this approach,
 devices can but do not have to be prevalidated against 
 a particular standard before being deployed.
-They can be described after the fact, and do not need any modification to be
+They can be described after the fact,
+and do not need any modification to be
 used as part of a Web of Things system.
 This solves the brownfield problem and allows
 older devices as well as devices satisfying different IoT 
@@ -57,11 +62,12 @@ security and may use different security mechanisms.
 This may cause integration challenges, even if the necessary
 information is provided in the metadata.
 
-Beyond this basic concern, pervasive metadata raises several other issues
+Beyond this basic concern,
+the availability of pervasive metadata raises several other issues
 from a security perspective.
 In this paper we discuss four major issues:
 % NOTE: want to use {description} here but it seems to be broken...
-\begin{itemize}
+\begin{enumerate}
 \item \textbf{Vulnerability analysis:}
 Providing information about what devices can do makes it easier to 
 automatically scan for devices with vulnerabilities.
@@ -87,7 +93,7 @@ as well as features with security implications such as payment or scripting.
 What mechanisms are needed and what data needs to be provided?
 Also, depending on how the metadata is made available, it may or may not be 
 possible to support decentralized approaches to security.
-\end{itemize}
+\end{enumerate}
 
 The next few sections first introduce the W3C Web of Things draft standard,
 focusing on the Thing Description metadata format.  
