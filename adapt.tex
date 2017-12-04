@@ -19,7 +19,8 @@ modifying or deleting data,
 injecting false data and events,
 or privacy invasion.
 
-The WoT enables a way around this problem using end-to-end encryption.
+The WoT enables a way around this problem using end-to-end payload encryption,
+also known as object security \cite{Mattsson2014}.
 Basically, rather than adapting payloads in a point-to-point fashion,
 adaptation should take place at one of the endpoints, ideally the
 one with greater capability.  The endpoint doing the adaptation should
@@ -28,5 +29,4 @@ target, and then use end-to-end encrypted communication.
 It may still be necessary to use bridges in between to adapt protocols
 (for example, bridging from HTTPS on the internet to CoAPS over a local
 network) but the payloads can remain encrypted.
-% This is usually called "object security".  Provide a reference?
 
