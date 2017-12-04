@@ -1,18 +1,17 @@
-Several practical pitfalls exist that can make it difficult
-to combine best practices for security with systems 
-defined by the WoT in practice.
-Many of these issues arise when trying to access IoT devices
+Many issues arise when trying to access IoT devices
 that are located on a ``local'' network,
 for example behind a NAT in a Smart Home use case.
+In addition, devices may be accessible over multiple
+routes and protocols.
 
-Naturally when one hears of the term ``Web of Things'' the
+When one hears of the term ``Web of Things'' the
 assumption is that HTTP (or ideally, HTTPS) will be used to
 access IoT devices. This may or may not be the best choice
-for a variety of reasons.  On the positive side, use of HTTP
+for a variety of reasons.  However, use of HTTP
 allows devices acting as HTTP servers to be accessed directly
-from web browsers and indeed to provide their own user
+from web browsers and provide their own user
 interfaces via HTML.  To provide better security, one would
-naturally want to use HTTPS rather than HTTP for this purpose.
+naturally want to use HTTPS rather than HTTP.
 Unfortunately HTTPS and the certificate system behind it has
 been designed for globally accessible web sites, not devices
 behind NATs that may or may not have a globally accessible
@@ -29,27 +28,34 @@ in the cloud is used as an intermediary.  Unfortunately,
 this requires an active internet connection even to use 
 local devices, and is also relatively high latency and
 bandwidth-inefficient.
+Various mechanisms have been explored to deal with this issue\cite{httpslocal2017}
+but no generally accepted mechanism has been adopted.
+Therefore a metadata standard needs to be able to deal with a variety
+of approaches.
 
 Other secure protocols, like CoAPS, 
 do not have the same assumptions as HTTPS and can be used
 more easily in an segmented network.  
 The WoT, despite its name, can also work with these standards.
 
-However, even with CoAP, there is an additional issue: the URLs
+However, even with CoAP, there is another issue: the URLs
 used to access the same device can vary depending on whether the
 device is accessible on the local network or should be accessed
 via a global URL (either via NAT port forwarding, a proxy, or
 a digital twin).  A Thing Description can include multiple links
 for each interaction, so in theory both local and global links
 can be included in a single Thing Description.
-However, a user of a Thing has not easy way to tell if it is on
-the same local network as a Thing, and if not, the ``local'' links
+However, a user of a Thing has no easy way to tell if it is on
+the same local network as another target Thing,
+and if not, the ``local'' links
 won't work... or will connect to a different device.  Another
 approach would be for the Thing Directory to return a modified
 Thing Description with local links to clients that it knows 
-are on the same local network.  The first approach, multiple
+are on the same local network.
+The first approach, multiple
 links, has the problem of broken links (and possibly even 
 connecting to the wrong device, if some other mechanism is not
-used to control access).  The second approach raises the possibility
+used to control access).
+The second approach raises the possibility
 of a malicious Thing Directory, or a network attacker spoofing a
 Thing Directory, to redirect clients to fake devices.

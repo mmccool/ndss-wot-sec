@@ -6,7 +6,8 @@ deployment scenarios
 and requirements for WoT Things,
 it is impossible to define a single WoT threat model
 that would fit every case.
-Instead we have created an overall WoT threat model~\cite{Wot2017sec} 
+Instead we have created an overall WoT threat model
+\emph{framework}~\cite{Wot2017sec} 
 that can be adjusted by OEMs or other WoT system users or providers
 based on their concrete security requirements.
 
@@ -19,22 +20,23 @@ Threats can be in or out of scope based on the deployment scenario,
 security objectives, acceptable risks, and other factors.
 For example,
 in a smart home scenario involving WoT Things that record audio/video
-information, the privacy aspect would be very important and 
+information, privacy would usually be considered important and 
 therefore this scenario would have high confidentiality requirements.
 On another hand,
 in an industry automation scenario involving WoT Things that 
 control some safety-critical infrastructure,
 confidentiality might not be the highest priority.
-Instead, service availability
+Instead, in an industrial setting, service availability
 and protection of the environment controlled by the Thing 
 may be of topmost importance.
 
-Being a distributed system brings additional complexity 
+Deploying the WoT in a distributed system brings additional complexity 
 to the WoT Threat Model and the choice of relevant security mitigations.
-One cannot rely on standard communication infrastructure and protocols 
+In particular one cannot rely on single standard communication infrastructure 
+and protocol 
 (like HTTPS) to provide an end-to-end security between all communicating
 parties.
 Instead WoT needs to support multiple security mechanisms 
 (potentially nested or interdependent) 
 that can be combined into single end-to-end security solution.  
-  
+ 

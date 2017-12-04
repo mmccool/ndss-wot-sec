@@ -3,13 +3,15 @@ its main deliverable a ``Thing Description'': a standardized representation for 
 IoT device, including in particular a description of its network interface,
 but also allowing for multiple levels of semantic annotation.
 The WoT Thing Description supports a descriptive (as opposed to prescriptive) approach to interoperability.
-The provision of rich descriptive metadata has at least four major implications for security.
-First, it allows for system-wide vulnerability analysis, 
-which can be both a risk and an opportunity.
-Second, metadata can enable end-to-end security in multistandards networks,
-avoiding exposing data within bridges otherwise needed for connecting standards pairwise.
-Third, metadata supports service and device discovery,
-which raises the question of how to limit discovery to authorized agents.
-Fourth, metadata can enable distributed security mechanisms for access control and micropayments.
-To the extent that metadata access can be decentralized, decentralized mechanisms for security can
-be supported, although several practical issues currently make this difficult to fully support.
+The provision of rich descriptive metadata has at least five major implications for security.
+First, the need for local links and, more generally, disconnected and segmented networks
+       in IoT raises several practical considerations in what metadata should be provided.
+Second, metadata allows for system-wide vulnerability analysis, 
+       which can be both a risk and an opportunity.
+Third, metadata can enable end-to-end security in multistandards networks,
+       avoiding exposing unencrypted data within bridges otherwise needed for connecting standards pairwise.
+Fourth, metadata supports service and device discovery,
+       which raises the question of how to limit discovery to authorized agents.
+Fifth, metadata can enable distributed security mechanisms for access control and micropayments.
+       To the extent that metadata access can be decentralized, decentralized mechanisms for security can
+       be supported.

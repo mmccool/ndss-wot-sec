@@ -10,11 +10,11 @@ services, semantic searches can be specified
 that can consume large amounts of resources,
 rendering the Thing Directories unavailable to other users.
 This can be mitigated by either limiting the power of searches
-that can be specified, or my limiting the amount of processing
+that can be specified, or by limiting the processing
 power that can be used in a specific search.
 
 In the first approach, rather than providing a full
-SPARQL endpoint, a directory services may provide a more specialized
+SPARQL endpoint, a directory service may provide a more specialized
 search interface that only allows searches for a conjunction of terms
 and does not allow, for instance, use of arbitrary inference rules
 or use of other SPARQL endpoints in a federated search.
@@ -44,12 +44,11 @@ not explicitly present in the database: that is point!
 However, it is possible that an attacker could use this capability
 to invade someone's privacy.  For example, they could infer
 personal information, such as marital status, from the ownership
-of certain combinations of devices.
+of certain combinations of devices (for example, multiple toothbrushes).
 While it is difficult to prevent inference attacks in general,
 we should at least design semantic search engines to not use 
 data for inference that would not be directly available to the
-person posing the query in the first place 
-\cite{Thura2005a,Xia2014a}.  
+person posing the query in the first place \cite{Thura2005a,Xia2014a}.  
 As with the other class of risks we mentioned,
 mitigation requires restricting the distribution of Thing Description
 data to authorized users only.
