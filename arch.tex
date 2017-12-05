@@ -9,37 +9,33 @@ A \textbf{WoT Thing} represents a physical or virtual IoT device
 	Each WoT Thing has an associated Thing Description (TD)\cite{Wot2017td}. 
         A TD encodes a set of metadata describing relevant information about a Thing,
         such as semantic categorization, available interactions, and communication and security mechanisms.
-        \begin{itemize}
-	\item{A typical example of a WoT Thing might be a garage door controller.
-        Such a controller would provide a number of interactions that can be performed on a garage door, 
-        i.e. \textit{open}, \textit{close}, etc. and would provide network interfaces to invoke
-        each of these.}
-        \end{itemize}
-        Typically a WoT Thing plays the network role of a server as it responds to
-        but does not initiate interactions.
+
+A typical example of a WoT Thing might be a garage door controller.
+Such a controller would provide a number of interactions that can be performed on a garage door, 
+i.e. \textit{open}, \textit{close}, etc. and would provide network interfaces to invoke
+each of these.
+Typically a WoT Thing plays the network role of a server as it responds to
+but does not initiate interactions.
 
 
 A \textbf{WoT Client} is an entity that wants to perform an action on a WoT Thing.
-	It is able to consume a TD provided by (or for) another WoT Thing and invoke interactions on 
-        the target's network interfaces.
-        \begin{itemize}
-	\item{For example a WoT Client might be a browser or an application on a user's smartphone
-        that allows the user to invoke one of the interactions provided by the garage door controller. 
-        }
-        \end{itemize}
+It is able to consume a TD provided by (or for) another WoT Thing and invoke interactions on 
+the target's network interfaces.
+
+For example a WoT Client might be a browser or an application on a user's smartphone
+that allows the user to invoke one of the interactions provided by the garage door controller. 
 
 
 A \textbf{WoT Servient} can be viewed as a combination of a client and server:
         an entity that is both providing one or more WoT Thing interfaces (as a server) and
         at the same time is able to operate as WoT Client to invoke interactions on other WoT Things.
-        \begin{itemize}
-	\item{An example of a WoT Servient would be (a service running on a) home gateway device 
-        that acts as a WoT Client towards home appliance WoT Things
-        (such as different lights and sensors) and also exposes some higher level
-        ``virtual'' devices (such as the collection of all the lights in the living room)
-        in the form of additional WoT Things available for a WoT Client running on a user's smartphone.
-        }
-        \end{itemize}
+
+An example of a WoT Servient would be (a service running on a) home gateway device 
+that acts as a WoT Client towards home appliance WoT Things
+(such as different lights and sensors) and also exposes some higher level
+``virtual'' devices (such as the collection of all the lights in the living room)
+in the form of additional WoT Things available for a WoT Client running on a user's smartphone.
+
 
 Internally a typical architecture of a WoT Servient is shown in Figure~\ref{fig-fservient}. 
 In addition to a Thing Description (TD), a full WoT Servient also has WoT Binding Template 
@@ -56,7 +52,7 @@ raises many issues such as application isolation, prevention of DDoS attacks, an
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=4in]{figures/wot-servient.png}
+\includegraphics[width=3.3in]{figures/wot-servient.png}
 \caption{WoT Servient architecture}
 \label{fig-fservient}
 \end{figure}

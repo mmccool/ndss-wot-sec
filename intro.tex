@@ -64,7 +64,6 @@ older devices as well as devices satisfying different IoT
 standards to be integrated into a unified system.  
 
 This approach has both risks and opportunities from a security point of view.
-
 Most obviously, IoT devices, even those conforming to a prescriptive IoT standard,
 may vary widely in their support for security.
 Therefore a Web of Things system
@@ -80,8 +79,9 @@ the availability of pervasive metadata raises several other issues
 from a security perspective.
 In this paper we discuss five major issues:
 % NOTE: want to use {description} here but it seems to be broken...
-\begin{enumerate}
-\item \textbf{Local Links:}
+
+
+\noindent\textbf{Local Links:}
 End-point IoT devices can be deployed in many ways: 
 starting with deployments in closed, only locally accessible,
 networks, extending to systems on local networks but behind a proxy or a firewall 
@@ -94,26 +94,34 @@ Security mechanisms with assumptions about global connectivity also may not
 operate correctly in disconnected networks.
 In IoT deployments, even nominally fully connected systems may have to 
 deal with frequent loss of full connectivity.
-\item \textbf{Vulnerability Analysis:}
+
+
+\noindent\textbf{Vulnerability Analysis:}
 Providing information about what devices can do makes it easier to 
 automatically scan for devices with vulnerabilities.
 An attacker may also use this information to plan attacks that take advantage of 
 vulnerabilities in multiple devices. 
 However, for the system manager, scanning can also be an opportunity 
 to identify devices whose vulnerabilities need to be mitigated.
-\item \textbf{Endpoint Adaptation:}
+
+
+\noindent\textbf{Endpoint Adaptation:}
 Metadata enables end-to-end security in networks of IoT devices using multiple standards.
 If metadata is used to push payload adaptation to endpoints then 
 communication payloads can be encrypted end-to-end.  
 This contrasts with systems that use local bridging to connect devices from multiple IoT standards.
 Local bridges require opening (and usually re-encrypting) data in potentially-vulnerable gateways.
-\item \textbf{Secure Discovery:}
+
+
+\noindent\textbf{Secure Discovery:}
 Information about how to use a service, 
 and ideally even its existence, should not
 be disclosed to agents without the authorization to use it.
 The WoT approach allows powerful semantic searches to be used for discovery.
 How can this capability be made available while still securing the metadata?
-\item \textbf{Enabling Distributed Security:}
+
+
+\noindent\textbf{Enabling Distributed Security:}
 Metadata may be provided to enable specific security mechanisms,
 as well as to support features with security implications such as payment or scripting.
 What specific mechanisms are needed and what data needs to be provided
@@ -122,7 +130,6 @@ Depending on how the metadata is made available, it may or may not be
 possible to support decentralized approaches to security.
 In general, the mechanism used to provide the metadata is
 an essential component of the security architecture.
-\end{enumerate}
 
 The next few sections first introduce the W3C Web of Things draft standard,
 focusing on the Thing Description metadata format.  
