@@ -1,28 +1,45 @@
-%\textsf{Metadata for distributed security and payment mechanisms.  
-%Tokens.
-%Interledger addresses.
-%Nested security.
-%}
+Choosing what security metadata to include in a TD isn't a straightforward task.
+Many things must be taken into account: 
+various WoT/IoT deployment scenarios and configurations, 
+underlying networking protocols and their security mechanisms, overall scalability etc.
 
-Designing the correct format for the TD security metadata field isn't a straightforward task.
-Many things must be taken into account: various WoT (and more generic IoT) deployment scenarios and configurations, underneath networking protocols and their security mechanisms, overall scalability etc.
+A data packet in a WoT network can go over many intermediate entities, including gateways and proxies.
+Some of these entities might need to perform authentication 
+and authorization of the requester. 
+The security metadata in the TD should indicate
+what types of credentials are required by each entity and how to obtain them.
 
-A data packet in a WoT network can go over many intermediate entities, including gateways, proxies etc.
-Depending on the concrete setup, some of these entities might want to perform authentication and authorization of the requester and therefore the security metadata in TD should carry all needed information, i.e. what types of credentials are required by each entity, how to obtain them etc.
-
-For example let's consider the deployment scenario in Figure~\ref{fig-wot-scenario}.
+For example, consider the deployment scenario in Figure~\ref{fig-wot-scenario}.
 Suppose the forwarding proxy requires authentication of any request before passing it to the local network.
-Additionally let's assume that the WoT gateway performs authentication at least for some interactions provided by the WoT Thing, i.e. opening a garage door (critical interaction) requires a certain credential.
-Both of these authentication methods (potentially fully different) and all associated information must be specified in the TD that the WoT Client receives from the Things Directory or otherwise the request to open the garage door cannot be performed.
-The WoT gateway can perform the authentication of the WoT Client in a number of ways depending on what credentials are provisioned to both parties upon the setup.
-The OCF Security Specification~\cite{ocf2017} describes a number of methods how IoT devices can do this based on either symmetrical or asymmetrical credentials (including certificates). 
-However, the biggest drawback of this method is a need to provision the respective credentials to the WoT Client in advance, making it not very suitable for a distributed nature of the WoT network.
-Another possibility is to use a token-based authentication mechanism, such as OAuth 2.0-based or Proof-of-possession tokens~\cite{ace2017}, that allows  
-a WoT Client to dynamically request such token from a remotely located authorization server and present it for a successful authentication to the WoT Gateway.
-This method is especially well-suited for the constrained IoT devices. 
+Additionally assume that the WoT gateway performs authentication 
+at least for certain critical interactions provided by the WoT Thing 
+(for example, unlocking a door). 
+Both of these authentication methods (potentially different) and 
+associated information must be specified in the TD 
+that the WoT Client receives from the Thing Directory.
+The WoT gateway can perform the authentication of the WoT Client 
+in a number of ways depending on what standards the target devices support.
+For example, the OCF Security Specification~\cite{ocf2017} 
+describes a number of ways IoT devices can perform authentication based on 
+either symmetrical or asymmetrical credentials (including certificates). 
+However, needing to provision credentials in advance 
+is not ideal for a distributed network such as the WoT is intended to support.
+Another possibility is to use a token-based authentication mechanism,
+such as OAuth 2.0 or Proof-of-Possession tokens~\cite{ace2017}.
+Token-based authentication allows  
+a WoT Client to dynamically request a token from a remotely 
+located authorization server and present it for 
+authentication to a WoT gateway or Thing.
+This method is especially well-suited for constrained IoT devices. 
 
-Generalizing the above example, there might be N sets of fully independent security metadata that should be possible to embed into a Thing Description.
-Moreover, when a Thing Description is composed, these sets can be provided by separate entities: a gateway might only specify the security metadata for accessing interactions defined in TD, while the forwarding proxy adds the metadata required for successful authentication of incoming requests.
-This means that there has to be a way to limit what security meatadata is allowed to be provided by what entity and also it must be possible for the WoT client to verify the overall integrity of resulting TD. 
+Generalizing the above example, 
+there might be $N$ sets of fully independent security metadata
+necessary in a Thing Description.
+Moreover, when a Thing Description is composed, 
+these sets can be provided by separate entities: 
+a gateway might only specify the security metadata for accessing interactions defined in a TD,
+while the forwarding proxy adds the metadata required for successful authentication of incoming requests.
+This means that there has to be a way to limit what security metadata 
+is allowed to be provided by what entity.
+Also, it must be possible for the WoT client to verify the overall integrity of resulting TD. 
  
-

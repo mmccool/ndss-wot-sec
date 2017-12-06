@@ -16,12 +16,12 @@ SPARQL endpoint, a directory service may provide a more specialized
 search interface that only allows searches for a conjunction of terms
 and does not allow, for instance, use of arbitrary inference rules
 or use of other SPARQL endpoints in a federated search.
-The problem with this approach is that by limiting the power
+However, by limiting the power
 of the searches that may be specified, we are also limiting the
 potential benefit.
 
-The second approach to mitigate DoS attacks via pathologically
-expensive semantic queries is to use an architecture for the 
+The second approach to mitigate DoS attacks 
+is to use an architecture for the 
 search engine that can enforce resource quotas on individual queries.
 For example, each search could be spawned in a new process and Linux
 process limits could be used to enforce processing quotas. In addition,
