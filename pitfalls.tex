@@ -15,47 +15,48 @@ naturally want to use HTTPS rather than HTTP.
 Unfortunately HTTPS and the certificate system behind it has
 been designed for globally accessible web sites, not devices
 behind NATs that may or may not have a globally accessible
-address and may or may not even be connected to the internet.
+address and may not even be continously connected to the internet.
 In particular, certificate revocation checks will not work if
 the network both devices are on is not connected to the internet
-(for example, if an adhoc network is used, with the device acting as
+(for example, if an \textit{ad hoc} network is used, with the device acting as
 an access point) and certificates will not generally be able 
 to tie the identity of a device to a particular URL. 
 
 Both of these problems can be avoided by using a cloud proxy
-or mirror (digital twin) for the device.  In that case a server
-in the cloud is used as an intermediary.  Unfortunately,
+or mirror (digital twin) for the device.
+In that case a server
+in the cloud is used as an intermediary.
+Unfortunately,
 this requires an active internet connection even to use 
-local devices, and is also relatively high latency and
+local devices, has relatively high latency, and is
 bandwidth-inefficient.
-Various mechanisms have been explored to deal with this issue\cite{httpslocal2017}
+Various mechanisms have been explored to deal with this issue~\cite{httpslocal2017}
 but no generally accepted mechanism has been adopted.
 Therefore a metadata standard needs to be able to deal with a variety
 of approaches.
 
 Other secure protocols, like CoAPS, 
 do not have the same assumptions as HTTPS and can be used
-more easily in an segmented network.  
+more easily in an segmented network.
 The WoT, despite its name, can also work with these standards.
 
-However, even with CoAP, there is another issue: the URLs
+However, even with CoAPS, there is another issue: the URLs
 used to access the same device can vary depending on whether the
 device is accessible on the local network or should be accessed
 via a global URL (either via NAT port forwarding, a proxy, or
-a digital twin).  A Thing Description can include multiple links
-for each interaction, so in theory both local and global links
+a digital twin).
+A Thing Description can include multiple links
+for each interaction,
+so in theory both local and global links
 can be included in a single Thing Description.
-However, a user of a Thing has no easy way to tell if it is on
+However,
+a user of a Thing has no easy way to tell if it is on
 the same local network as another target Thing,
-and if not, the ``local'' links
-won't work... or will connect to a different device.  Another
+and if not, the ``local'' links won't work.
+Another
 approach would be for the Thing Directory to return a modified
 Thing Description with local links to clients that it knows 
 are on the same local network.
-The first approach, multiple
-links, has the problem of broken links (and possibly even 
-connecting to the wrong device, if some other mechanism is not
-used to control access).
-The second approach raises the possibility
+This alternative approach raises the possibility
 of a malicious Thing Directory, or a network attacker spoofing a
 Thing Directory, to redirect clients to fake devices.

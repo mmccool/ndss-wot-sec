@@ -19,14 +19,13 @@ modifying or deleting data,
 injecting false data and events,
 or privacy invasion.
 
-The WoT enables a way around this problem using end-to-end payload encryption,
-also known as object security \cite{Mattsson2014}.
-Basically, rather than adapting payloads in a point-to-point fashion,
+The WoT enables a way around this problem using endpoint 
+end-to-end payload adaption.
+This is similar to but distinct from object security~\cite{Mattsson2014}.
+Rather than adapting payloads in a point-to-point fashion,
 adaptation should take place at one of the endpoints, ideally the
 one with greater capability.  The endpoint doing the adaptation should
 look at the metadata for the target endpoint, adapt its payload for that
-target, and then use end-to-end encrypted communication.
-It may still be necessary to use bridges in between to adapt protocols
-(for example, bridging from HTTPS on the internet to CoAPS over a local
-network) but the payloads can remain encrypted.
+target, and then (ideally, if the far endpoint supports it)
+use end-to-end encrypted communication.
 
