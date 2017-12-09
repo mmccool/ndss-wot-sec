@@ -6,13 +6,16 @@ routes and protocols.
 
 When one hears of the term ``Web of Things'' the
 assumption is that HTTP (or ideally, HTTPS) will be used to
-access IoT devices. This may or may not be the best choice
-for a variety of reasons.  However, use of HTTP
-allows devices acting as HTTP servers to be accessed directly
-from web browsers and provide their own user
-interfaces via HTML.  To provide better security, one would
+access IoT devices. 
+This need not be the case;
+the WoT supports HTTP but also 
+other choices, such as CoAP and MQTT.
+However, use of HTTP
+allows Things acting as HTTP servers to be accessed directly
+from web browsers and to provide user interfaces via HTML.  
+To provide better security, one would
 naturally want to use HTTPS rather than HTTP.
-Unfortunately HTTPS and the certificate system behind it has
+Unfortunately HTTPS and way it is supported in browsers has
 been designed for globally accessible web sites, not devices
 behind NATs that may or may not have a globally accessible
 address and may not even be continously connected to the internet.
@@ -35,12 +38,16 @@ but no generally accepted mechanism has been adopted.
 Therefore a metadata standard needs to be able to deal with a variety
 of approaches.
 
-Other secure protocols, like CoAPS, 
-do not have the same assumptions as HTTPS and can be used
-more easily in an segmented network.
-The WoT, despite its name, can also work with these standards.
+% Other secure protocols, like CoAPS, 
+% do not have the same assumptions as HTTPS and can be used
+% more easily in an segmented network.
+% As noted above the WoT, despite its name, can also work with these standards.
+The issues noted above can be avoided if we do not need
+to communicate directly with a Thing using a web browser.  
+In machine-to-machine (M2M) use cases
+we have more flexibility in how we validate connections.
 
-However, even with CoAPS, there is another issue: the URLs
+However, even for M2M there is another issue: the URLs
 used to access the same device can vary depending on whether the
 device is accessible on the local network or should be accessed
 via a global URL (either via NAT port forwarding, a proxy, or
@@ -54,9 +61,12 @@ a user of a Thing has no easy way to tell if it is on
 the same local network as another target Thing,
 and if not, the ``local'' links won't work.
 Another
-approach would be for the Thing Directory to return a modified
+approach would be for the (trusted and authenticated)
+Thing Directory to return a modified
 Thing Description with local links to clients that it knows 
 are on the same local network.
-This alternative approach raises the possibility
-of a malicious Thing Directory, or a network attacker spoofing a
-Thing Directory, to redirect clients to fake devices.
+% A mechanism is needed to ensure only
+% authenticated and trusted Thing Directories can do such redirection.
+% This alternative approach raises the possibility
+% of a malicious Thing Directory, or a network attacker spoofing a
+% Thing Directory, to redirect clients to fake devices.

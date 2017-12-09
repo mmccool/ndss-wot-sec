@@ -37,12 +37,13 @@ so ideally the search engine itself would have lighter-weight
 mechanisms to track resource consumption and enforce quotas.
 
 There is another class of risks with semantic searches: 
-inferencing.  Semantic searches can infer information that is
-not explicitly present in the database: that is point!
-However, it is possible that an attacker could use this capability
+inferencing. 
+By their nature, semantic searches can infer information that is
+not explicitly present in the database.
+It is possible that an attacker could use this capability
 to invade someone's privacy.  For example, they could infer
-personal information, such as marital status, from the ownership
-of certain combinations of devices (for example, multiple toothbrushes).
+personal information (e.g. marital status) from the ownership
+of certain combinations of devices (e.g. multiple toothbrushes).
 While it is difficult to prevent inference attacks in general,
 we should at least design semantic search engines to not use 
 data for inference that would not be directly available to the

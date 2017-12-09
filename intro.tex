@@ -8,7 +8,7 @@ a recent study~\cite{McK2015a} concluded that 40\% to 60\% of the
 benefit of IoT will be unattainable,
 due to the inability to address use cases that cannot be satisfied by a single manufacturer.
 
-Unfortunately full interoperability is hard to achieve.
+Full interoperability is hard to achieve.
 There are currently many competing IoT standards under development,
 each of which is attempting to address this problem.
 Most of these standards are prescriptive.
@@ -17,11 +17,12 @@ devices are validated against specific requirements.
 Typically the goal is that devices validated against 
 a particular standard will interoperate with
 other devices also validated against that standard.
-In addition, it is possible to bridge multiple standards so that
+It is also possible to bridge multiple standards so that
 devices validated against one standard can communicate with
 devices using another standard by translating communication protocols and payloads.
-Of course if one standard comes to dominate bridging will be unnecessary.
-However, so far such unification seems to be elusive and may be impossible due to
+If one standard comes to dominate bridging will be unnecessary,
+but so far such unification seems to be elusive. 
+Unification is complicated by the
 divergent requirements in different but overlapping IoT subdomains.
 As an example of divergent requirements,
 some application areas require real-time response (fixed latency responses)
@@ -34,7 +35,7 @@ while others use a message-centric publish-subscribe model.
 
 %Unfortunately the prescriptive approach has some weaknesses.
 In addition to the issue of the interoperability for modern prescriptive IoT standards,
-there are always going to exist devices that follow older standards or specifications.
+there are always going to be devices that follow older standards or specifications.
 There are decades-old devices in particular domains, such as building and factory
 automation, that are just now being connected to the IoT.
 These devices often represent major investments and cannot be economically replaced with newer,
@@ -74,12 +75,16 @@ and may use different security mechanisms.
 This may cause integration challenges, even if the necessary
 information is provided in the metadata.
 
-Beyond this basic concern,
-the availability of pervasive metadata raises several other issues
-from a security perspective.
-In this paper we discuss five major issues:
+% Beyond this basic concern,
+% the availability of pervasive metadata raises several other issues
+% from a security perspective.
+% In this paper we discuss five major issues:
 % NOTE: want to use {description} here but it seems to be broken...
-
+The goal of this paper is to set out WoT security scenarios
+and start the discussion of the risks and opportunities presented
+by such pervasive metadata.  
+\textit{\textbf{We do not present solutions, but rather a set of problems.}}
+We have identified at least five such problems:
 
 \noindent\textbf{Local Links:}
 End-point IoT devices can be deployed in many ways: 
@@ -95,7 +100,6 @@ operate correctly in disconnected networks.
 In IoT deployments, even nominally fully connected systems may have to 
 deal with frequent loss of full connectivity.
 
-
 \noindent\textbf{Vulnerability Analysis:}
 Providing information about what devices can do makes it easier to 
 automatically scan for devices with vulnerabilities.
@@ -107,7 +111,7 @@ to identify devices whose vulnerabilities need to be mitigated.
 
 \noindent\textbf{Endpoint Adaptation:}
 Metadata enables end-to-end security in networks of IoT devices using multiple standards.
-If metadata is used to push payload adaptation to endpoints then 
+If metadata is used to push payload adaptation to endpoints this allows 
 communication payloads can be encrypted end-to-end.  
 This contrasts with systems that use local bridging to connect devices from multiple IoT standards.
 Local bridges require opening (and usually re-encrypting) data in potentially-vulnerable gateways.
