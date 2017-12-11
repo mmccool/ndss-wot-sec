@@ -9,7 +9,7 @@ due to the inability to address use cases that cannot be satisfied by a single m
 
 Full interoperability is hard to achieve.
 There are currently many competing IoT standards under development,
-each of which is attempting to address this problem.
+each of which is attempting to address interoperability.
 Most of these standards are prescriptive.
 In a prescriptive standard,
 devices are validated against specific requirements.
@@ -24,7 +24,7 @@ but so far such unification seems to be elusive.
 Unification is complicated by the
 divergent requirements in different but overlapping IoT subdomains.
 As an example of divergent requirements,
-some application areas require real-time response (fixed latency responses)
+some application areas require real-time response (bounded low-latency responses)
 and others require low power (requiring long sleep times) or wireless access
 (in which it is very difficult to acheive real-time guarantees due to the
 possibility of interference or collisions).
@@ -34,13 +34,14 @@ while others use a message-centric publish-subscribe model.
 
 %Unfortunately the prescriptive approach has some weaknesses.
 In addition to the issue of the interoperability for modern prescriptive IoT standards,
-there are always going to be devices that follow older standards or specifications.
+there are always going to exist devices that follow older standards or specifications.
 There are decades-old devices in particular domains, such as building and factory
 automation, that are just now being connected to the IoT.
-These devices often represent major investments and cannot be economically replaced with newer,
+These devices often represent major investments and cannot be economically replaced with newer
 devices conforming to the latest standard.
 This is the ``brownfield'' problem.
-Moreover new devices are being deployed today that have not been validated
+Moreover new devices are being deployed today and for the forseeable future 
+that have not been validated
 against any particular IoT standard,
 even if they use other \textit{de jure} or \textit{de facto} standards such as JSON, HTTP, or MQTT.
 
@@ -81,11 +82,11 @@ information is provided in the metadata.
 % NOTE: want to use {description} here but it seems to be broken...
 The goal of this paper is to set out WoT security scenarios
 and start the discussion of the risks and opportunities presented
-by such pervasive metadata.  
+by such pervasive metadata and the descriptive approach to interoperability.  
 \textit{\textbf{We do not present solutions, but rather a set of problems.}}
 We have identified at least five such problems:
 
-\noindent\textbf{Local Links:}
+\noindent\textbf{1.~Local Links:}
 End-point IoT devices can be deployed in many ways: 
 starting with deployments in closed, only locally accessible,
 networks, extending to systems on local networks but behind a proxy or a firewall 
@@ -99,7 +100,7 @@ operate correctly in disconnected networks.
 In IoT deployments, even nominally fully connected systems may have to 
 deal with frequent loss of full connectivity.
 
-\noindent\textbf{Vulnerability Analysis:}
+\noindent\textbf{2.~Vulnerability Analysis:}
 Providing information about what devices can do makes it easier to 
 automatically scan for devices with vulnerabilities.
 An attacker may also use this information to plan attacks that take advantage of 
@@ -107,24 +108,21 @@ vulnerabilities in multiple devices.
 However, for the system manager, scanning can also be an opportunity 
 to identify devices whose vulnerabilities need to be mitigated.
 
-
-\noindent\textbf{Endpoint Adaptation:}
+\noindent\textbf{3.~Endpoint Adaptation:}
 Metadata enables end-to-end security in networks of IoT devices using multiple standards.
-If metadata is used to push payload adaptation to endpoints this allows 
-communication payloads can be encrypted end-to-end.  
+Pushing payload adaptation to endpoints is an enabler for
+end-to-end encryption of payloads via object security or tunnelled transports (or both).
 This contrasts with systems that use local bridging to connect devices from multiple IoT standards.
 Local bridges require opening (and usually re-encrypting) data in potentially-vulnerable gateways.
 
-
-\noindent\textbf{Secure Discovery:}
+\noindent\textbf{4.~Secure Discovery:}
 Information about how to use a service, 
 and ideally even its existence, should not
-be disclosed to agents without the authorization to use it.
+be disclosed to entities without the authorization to use it.
 The WoT approach allows powerful semantic searches to be used for discovery.
 How can this capability be made available while still securing the metadata?
 
-
-\noindent\textbf{Enabling Distributed Security:}
+\noindent\textbf{5.~Enabling Distributed Security:}
 Metadata may be provided to enable specific security mechanisms,
 as well as to support features with security implications such as payment or scripting.
 What specific mechanisms are needed and what data needs to be provided
