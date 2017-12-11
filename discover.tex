@@ -16,7 +16,7 @@ SPARQL endpoint, a directory service may provide a more specialized
 search interface that only allows searches for a conjunction of terms
 and does not allow, for instance, use of arbitrary inference rules
 or use of other SPARQL endpoints in a federated search.
-However, by limiting the power
+Unfortunately, by limiting the power
 of the searches that may be specified, we are also limiting the
 potential benefit.
 
@@ -31,8 +31,7 @@ If either limit is exceeded the server would return an appropriate
 error code.  If the query processing quota is exceeded, the client
 would have to reformulate their query.  If the server is too busy,
 the client would have to retry the query later.
-
-Of course creating a new process for each search would be expensive,
+Creating a new process for each search would be expensive,
 so ideally the search engine itself would have lighter-weight
 mechanisms to track resource consumption and enforce quotas.
 
@@ -42,12 +41,12 @@ By their nature, semantic searches can infer information that is
 not explicitly present in the database.
 It is possible that an attacker could use this capability
 to invade someone's privacy.  For example, they could infer
-personal information (e.g. marital status) from the ownership
+personal information (e.g. relationship status) from the ownership
 of certain combinations of devices (e.g. multiple toothbrushes).
 While it is difficult to prevent inference attacks in general,
 we should at least design semantic search engines to not use 
 data for inference that would not be directly available to the
-person posing the query in the first place~\cite{Thura2005a,Xia2014a}.  
+entity posing the query in the first place~\cite{Thura2005a,Xia2014a}.  
 As with the other class of risks we mentioned,
 mitigation requires restricting the distribution of Thing Description
 data to authorized users only.

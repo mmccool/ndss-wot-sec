@@ -1,9 +1,11 @@
-Choosing what security metadata to include in a TD isn't a straightforward task.
+Choosing what security metadata to include in a TD is not a straightforward task.
 Many things must be taken into account: 
-various WoT/IoT deployment scenarios and configurations, 
-underlying networking protocols and their security mechanisms, overall scalability etc.
+various deployment scenarios and configurations, 
+underlying networking protocols and their security mechanisms, 
+overall scalability, system security priorities, and so on.
 
-A data packet in a WoT network can go over many intermediate entities, including gateways and proxies.
+A data packet in a WoT network can go over many intermediate entities,
+including gateways and proxies.
 Some of these entities might need to perform authentication 
 and authorization of the requester. 
 The security metadata in the TD should indicate
@@ -22,7 +24,7 @@ in a number of ways depending on what standards the target devices support.
 For example, the OCF Security Specification~\cite{ocf2017} 
 describes a number of ways IoT devices can perform authentication based on 
 either symmetrical or asymmetrical credentials (including certificates). 
-However, needing to provision credentials in advance 
+However, provisioning credentials in advance 
 is not ideal for a distributed network such as the WoT is intended to support.
 Another possibility is to use a token-based authentication mechanism,
 such as OAuth 2.0 or Proof-of-Possession tokens~\cite{ace2017}.
@@ -30,7 +32,8 @@ Token-based authentication allows
 a WoT Client to dynamically request a token from a remotely 
 located authorization server and present it for 
 authentication to a WoT gateway or Thing.
-This method is especially well-suited for constrained IoT devices. 
+This method has its own risks, as tokens need to be protected
+from interception.
 
 Generalizing the above example, 
 there might be $N$ sets of fully independent security metadata

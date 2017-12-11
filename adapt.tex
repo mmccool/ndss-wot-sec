@@ -11,9 +11,9 @@ apparent AllJoyn device could in fact be a oneM2M device
 being made available over yet another bridge.
 
 Unfortunately bridges introduce a potential security vulnerability.
-If the bridge devices can be compromised,
-an attacker can have full access to the
-data being carried to and from the device can can stage a 
+If a bridge is compromised,
+an attacker would have full access to the
+data being carried to and from the bridge and can stage a 
 variety of attacks: 
 modifying or deleting data,
 injecting false data and events,
@@ -28,13 +28,13 @@ adaptation should take place at one of the endpoints, ideally the
 one with greater capability.  The endpoint doing the adaptation should
 look at the metadata for the target endpoint, adapt its payload for that
 target, and then use end-to-end encrypted communication:
-either end-to-end transport security, object security, or both.
+either end-to-end (tunnelled) transport security, object security, or both.
 
-However, if multiple transport protocols are used, such as a 
+If multiple transport protocols are used, such as a 
 combination of HTTP/TLS and CoAP/DTLS, bridging those protocols
 may create another compromise possibility.  A mechanism supporting
 object security such as JOSE~\cite{Jose2014} should then be used
-in combination with endpoint adaptation, but of course for this to
+in combination with endpoint adaptation, but for this to
 work the target (typically constrained) endpoint needs to support it. 
 Object security also supports secure state caching in the cloud or gateways,
 an important consideration for devices that may need a digital

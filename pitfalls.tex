@@ -4,22 +4,24 @@ for example behind a NAT in a Smart Home use case.
 In addition, devices may be accessible over multiple
 routes and protocols.
 
-When one hears of the term ``Web of Things'' the
-assumption is that HTTP (or ideally, HTTPS) will be used to
+When one hears the term ``Web of Things'' the
+assumption is that HTTP will be used to
 access IoT devices. 
-This need not be the case;
-the WoT supports HTTP but also 
-other choices, such as CoAP and MQTT.
-However, use of HTTP
-allows Things acting as HTTP servers to be accessed directly
-from web browsers and to provide user interfaces via HTML.  
+While leveraging web standards was one of the 
+original goals of the Web of Things concept \cite{Ostermaier2010},
+the current WoT draft supports other choices as well,
+such as CoAP and MQTT.
+However, use of HTTP conveniently
+allows Things acting as web servers to be accessed directly
+from web browsers to provide human user interfaces via HTML.  
 To provide better security, one would
 naturally want to use HTTPS rather than HTTP.
-Unfortunately HTTPS and way it is supported in browsers has
+Unfortunately HTTPS and way it is supported in web browsers has
 been designed for globally accessible web sites, not devices
 behind NATs that may or may not have a globally accessible
 address and may not even be continously connected to the internet.
-In particular, certificate revocation checks will not work if
+In particular, certificate revocation checks as currently 
+implemented in web browsers will not work if
 the network both devices are on is not connected to the internet
 (for example, if an \textit{ad hoc} network is used, with the device acting as
 an access point) and certificates will not generally be able 
@@ -34,7 +36,7 @@ this requires an active internet connection even to use
 local devices, has relatively high latency, and is
 bandwidth-inefficient.
 Various mechanisms have been explored to deal with this issue~\cite{httpslocal2017}
-but no generally accepted mechanism has been adopted.
+but no generally accepted solution has been adopted.
 Therefore a metadata standard needs to be able to deal with a variety
 of approaches.
 
@@ -42,12 +44,12 @@ of approaches.
 % do not have the same assumptions as HTTPS and can be used
 % more easily in an segmented network.
 % As noted above the WoT, despite its name, can also work with these standards.
-The issues noted above can be avoided if we do not need
+The issues noted above are not directly relevant if humans do not need
 to communicate directly with a Thing using a web browser.  
 In machine-to-machine (M2M) use cases
-we have more flexibility in how we validate connections.
+we have more flexibility in how we establish trust and validate connections.
 
-However, even for M2M there is another issue: the URLs
+Even for M2M use cases there is another issue: the URLs
 used to access the same device can vary depending on whether the
 device is accessible on the local network or should be accessed
 via a global URL (either via NAT port forwarding, a proxy, or

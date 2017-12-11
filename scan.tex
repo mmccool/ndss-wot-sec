@@ -1,6 +1,6 @@
 % \textsf{Vulnerability scanning using metadata.}
 The purpose of the Thing Descriptions is to enable easier discovery and use of 
-devices.  However, the flip side of this is that it may also become easier
+devices.  The flip side of this is that it may also become easier
 for attackers to discover vulnerable devices, or to infer private information
 simply from the type of devices available.
 
@@ -8,11 +8,14 @@ The first line of defense is to protect access to discovery services such
 as Thing Directories.  If Thing Directories can only be accessed by authorized
 users, a number of types of attacks become more difficult.  Since a Thing
 Directory is simply a web service, it can be protected with normal web service
-authorization mechanisms.  However, a given system may provide other means of 
-discovery, such as broadcast responses or extended DNS entries.  These may not
-be as easy to protect.  Note that in order to support a protected Thing Directory
+authorization mechanisms.  
+However, a given system may provide other means of 
+discovery, such as broadcast responses or extended DNS entries.
+These may not be as easy to protect.
+In order to support a protected Thing Directory
 a protected onboarding process is needed to associate devices with a given
-Thing Directory and of course to provide authorized users with appropriate
+Thing Directory.
+A mechanism is also needed to provide authorized entities with appropriate
 credentials to access the Thing Directory.
 
 Assuming an attacker can access Thing Descriptions, however, they may be
