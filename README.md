@@ -37,3 +37,7 @@ the "decentralized security" focus of the workshop:
 * **End-to-end secure adaptation:** translate payloads in secure endpoints, not at bridges.
 * **Secure semantic searches:**  How do we ensure only authorized Things are searched when using federated semantic searches?
 * **Metadata for distributed security and payment mechanisms:** Blockchain, Interledger, etc.
+
+## Presentation
+A draft of the slides for the workshop presentation is available [here](talks).
+
