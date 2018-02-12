@@ -39,5 +39,5 @@ the "decentralized security" focus of the workshop:
 * **Metadata for distributed security and payment mechanisms:** Blockchain, Interledger, etc.
 
 ## Presentation
-A draft of the slides for the workshop presentation is available [here](talks/).
+A draft of the slides for the workshop presentation is available [here](talk/WoT%20-%20S%26P%20-%20NDSS%20DISS%202018%20-%20Talk.pdf).
 
