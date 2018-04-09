@@ -2,7 +2,7 @@ The economic impact of the IoT will be strongly dependent on how well devices fr
 different manufacturers can interoperate.
 Very often wide interoperability is taken for granted when estimating the business
 benefit of IoT. 
-Conversely, if IoT devices do \emph{not} interoperate,
+However, if IoT devices do \emph{not} interoperate,
 a recent study~\cite{McK2015a} concluded that 40\% to 60\% of the 
 benefit of IoT will be unattainable,
 due to the inability to address use cases that cannot be satisfied by a single manufacturer.
@@ -91,13 +91,14 @@ We have identified at least five such problems:
 
 \noindent\textbf{1.~Local Links:}
 End-point IoT devices can be deployed in many ways: 
-starting with deployments in closed, only locally accessible,
-networks, extending to systems on local networks but behind a proxy or a firewall 
-providing access to the global internet, and ending with deployments on a globally addressed network. 
+starting with deployments in closed, only locally accessible, networks;
+extending to systems on local networks but behind a proxy or a firewall
+providing access to the global internet;
+and ending with deployments on a globally addressed network.
 In fact, it may be possible to reach the same device via multiple paths.
 As a result the metadata provided by IoT devices should allow for expression of
-different ways (links) to reach each device 
-and a way to securely update this information when the deployment setup changes. 
+different ways (links) to reach each device
+and a way to securely update this information when the deployment setup changes.
 Security mechanisms with assumptions about global connectivity also may not
 operate correctly in disconnected networks.
 In IoT deployments, even nominally fully connected systems may have to 
@@ -120,8 +121,9 @@ Local bridges require opening (and usually re-encrypting) data in potentially-vu
 
 \noindent\textbf{4.~Secure Discovery:}
 Information about how to use a service, 
-and ideally even its existence, should not
-be disclosed to entities without the authorization to use it.
+and ideally even its existence, should ideally not
+be disclosed to entities without authorization
+(or more generally, the potential to obtain authorization) to use it.
 The WoT approach allows powerful semantic searches to be used for discovery.
 How can this capability be made available while still securing the metadata?
 

@@ -1,9 +1,8 @@
-%\textsf{Usage scenarios.}
-
 Figure~\ref{fig-wot-scenario} presents a typical WoT deployment scenario. 
-A WoT Thing device together with a WoT Servient are placed inside 
-the local network behind a forwarding proxy. 
-A WoT Client that is located outside of this boundary wants to 
+A WoT Thing device together with a WoT Servient are located on a 
+local network and accessed through a forwarding proxy. 
+A WoT Client (which may in general be located either outside of the local network,
+as shown, but in many use cases may also be inside) wants to 
 perform interactions on the WoT Thing and WoT Servient.
 The available interactions are given in corresponding Thing Descriptions.
 There are various ways Thing Descriptions provided by WoT Things
@@ -21,10 +20,10 @@ only be provided to authorized clients, as with any web service.
 Upon obtaining a Thing Description, 
 the WoT Client needs to make sure it has all the necessary credentials
 to authenticate to the forwarding proxy 
-(if secure authentication on proxy is enabled), 
-the WoT Servient and in some cases even to the end WoT Thing.
-All required information about these potentially different 
-credentials should be provided in the obtained Thing Description.  
+(assuming secure authentication on the proxy is enabled), 
+the WoT Servient and in some cases even to the specific WoT Thing.
+Information describing how clients need to authenticate themselves
+should be provided in the obtained Thing Descriptions.  
 
 \begin{figure*}[!t]
 \centering
@@ -32,4 +31,3 @@ credentials should be provided in the obtained Thing Description.
 \caption{Typical WoT deployment scenario}
 \label{fig-wot-scenario}
 \end{figure*}
-

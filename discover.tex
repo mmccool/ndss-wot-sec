@@ -18,7 +18,9 @@ and does not allow, for instance, use of arbitrary inference rules
 or use of other SPARQL endpoints in a federated search.
 Unfortunately, by limiting the power
 of the searches that may be specified, we are also limiting the
-potential benefit.
+potential benefit. Federated searches, for example, may
+be needed to support domain-specific vocabulary supported
+by external ontologies.
 
 The second approach to mitigate DoS attacks 
 is to use an architecture for the 
@@ -31,8 +33,9 @@ If either limit is exceeded the server would return an appropriate
 error code.  If the query processing quota is exceeded, the client
 would have to reformulate their query.  If the server is too busy,
 the client would have to retry the query later.
-Creating a new process for each search would be expensive,
-so ideally the search engine itself would have lighter-weight
+Creating a new process for each search would be expensive however,
+and this itself creates a DoS vulnerability.
+Therefore, ideally the search engine itself would support light-weight
 mechanisms to track resource consumption and enforce quotas.
 
 There is another class of risks with semantic searches: 

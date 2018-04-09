@@ -1,4 +1,3 @@
-% \textsf{End-to-end secure adaptation by pushing payload transformation to endpoints.}
 In a typical multistandard IoT system,
 bridges may be needed to connect devices
 conforming to different standards.
@@ -19,7 +18,8 @@ modifying or deleting data,
 injecting false data and events,
 or privacy invasion.
 
-The WoT enables a way around this problem using endpoint 
+The descriptive approach to interoperability 
+enables a way around this problem using endpoint 
 end-to-end payload adaption.
 This is complementary to but distinct from object security~\cite{Mattsson2014}.
 
@@ -41,3 +41,9 @@ an important consideration for devices that may need a digital
 twin to handle transactions for them while they are in standby,
 conserving battery, or otherwise offline.
 
+One disadvantage of end-to-end security approaches is that advanced
+firewalls will not have access to the contents of messages in order to 
+do anomaly detection.  One approach to support this if it is necessary
+(and it might be in various circumstances) would be to treat the firewall
+as another trusted entity and explicitly providing it with appropriate 
+read-only access.

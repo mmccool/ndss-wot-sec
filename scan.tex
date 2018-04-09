@@ -1,5 +1,4 @@
-% \textsf{Vulnerability scanning using metadata.}
-The purpose of the Thing Descriptions is to enable easier discovery and use of 
+Thing Descriptions are meant to enable easier discovery and use of 
 devices.  The flip side of this is that it may also become easier
 for attackers to discover vulnerable devices, or to infer private information
 simply from the type of devices available.
@@ -8,8 +7,8 @@ The first line of defense is to protect access to discovery services such
 as Thing Directories.  If Thing Directories can only be accessed by authorized
 users, a number of types of attacks become more difficult.  Since a Thing
 Directory is simply a web service, it can be protected with normal web service
-authorization mechanisms.  
-However, a given system may provide other means of 
+authorization and security mechanisms.  
+However, a given WoT implementation may provide other means of 
 discovery, such as broadcast responses or extended DNS entries.
 These may not be as easy to protect.
 In order to support a protected Thing Directory
@@ -20,17 +19,17 @@ credentials to access the Thing Directory.
 
 Assuming an attacker can access Thing Descriptions, however, they may be
 able to exploit them in various ways.  First, they could try to analyze the 
-interactions available themselves for known vulnerabilities.  While the 
+available interactions themselves for known vulnerabilities.  While the 
 Thing Descriptions intentionally omit information about the software stack
 providing the service, an attacker may be able to use fingerprinting to
-associate a particular Thing Description to a particular device with known
-vulnerabilities.  The vulnerabilities may not even be over the network;
-for instance, an attacker may search for ``smart locks'' that can be defeated
-with a known physical attack.
+associate a particular Thing Description with a particular device or software stack
+with known vulnerabilities.  The vulnerabilities may not even be over the network;
+for example, an attacker may scan for ``smart locks'' that can be defeated
+with known physical attacks.
 The flip side of this, however, is that a System Maintainer can apply the same
 tools to scan for devices with vulnerabilities, in order to identify devices
 at risk so that mitigations can be put in place (such as scheduling updates to
-a device's firmware).
+a device's firmware, or enhancing the physical protection of a device).
 Unlike a malicious attacker, the System Maintainer also has the advantage that
 they can legitimately access \emph{all} Thing Descriptions in a system.
 

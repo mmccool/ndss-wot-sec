@@ -1,14 +1,16 @@
 Many issues arise when trying to access IoT devices
 that are located on a ``local'' network,
-for example behind a NAT in a Smart Home use case.
+for example behind a NAT in a Smart Home (consumer) use case,
+or on a firewalled operational network in a Smart Factory
+(industrial) use case.
 In addition, devices may be accessible over multiple
-routes and protocols.
+routes and protocols, raising the problem of unique identification.
 
 When one hears the term ``Web of Things'' the
 assumption is that HTTP will be used to
 access IoT devices. 
 While leveraging web standards was one of the 
-original goals of the Web of Things concept \cite{Ostermaier2010},
+original goals of the Web of Things concept~\cite{Ostermaier2010},
 the current WoT draft supports other choices as well,
 such as CoAP and MQTT.
 However, use of HTTP conveniently
@@ -25,7 +27,7 @@ implemented in web browsers will not work if
 the network both devices are on is not connected to the internet
 (for example, if an \textit{ad hoc} network is used, with the device acting as
 an access point) and certificates will not generally be able 
-to tie the identity of a device to a particular URL. 
+to tie the identity of a device to a particular unique URL. 
 
 Both of these problems can be avoided by using a cloud proxy
 or mirror (digital twin) for the device.
@@ -63,12 +65,27 @@ a user of a Thing has no easy way to tell if it is on
 the same local network as another target Thing,
 and if not, the ``local'' links won't work.
 Another
-approach would be for the (trusted and authenticated)
+approach would be for a trusted and authenticated
 Thing Directory to return a modified
-Thing Description with local links to clients that it knows 
+Thing Description with local links to clients that it (somehow) knows 
 are on the same local network.
-% A mechanism is needed to ensure only
-% authenticated and trusted Thing Directories can do such redirection.
-% This alternative approach raises the possibility
-% of a malicious Thing Directory, or a network attacker spoofing a
-% Thing Directory, to redirect clients to fake devices.
+%However a mechanism is needed to ensure only
+%authenticated and trusted Thing Directories can do such redirection,
+%since redirection raises the possibility
+%of a malicious Thing Directory, or a network attacker spoofing a
+%Thing Directory, redirecting clients to fake devices.
+
+A related issue is that of unique identity.
+The linked data approach used to support semantics in the WoT
+is based on the use of unique URIs to identify entities.
+However, if a Thing can be accessed using multiple URLs then
+these cannot be used to uniquely identify a Thing---or at least, not all of them. 
+Currently under discussion are ways in
+which unique identifiers can be added to Thing Descriptions,
+separate from the links used for interactions.
+These unique identifiers could be based on URI schemes such as UUIDs and DOIs.
+Use of unique identifiers also raises (or perhaps only highlights) privacy considerations.
+Potential privacy mitigations include limiting access to the unique identifiers in
+Thing Descriptions to authorized users and
+allowing unique identifiers to be reset as needed,
+for example upon ownership transfer.

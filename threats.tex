@@ -1,11 +1,9 @@
-%\textsf{A basic intro to to the WoT threat model~\cite{Wot2017sec}.}
-
 Due to the large diversity of devices,
 use cases,
 deployment scenarios 
 and requirements for WoT Things,
 it is impossible to define a single WoT threat model
-that would fit every case.
+that would fit every use case.
 Instead we have created an overall WoT threat model
 \emph{framework}~\cite{Wot2017sec} 
 that can be adjusted by OEMs or other WoT system users or providers
@@ -25,16 +23,17 @@ therefore this scenario would have high confidentiality requirements.
 On the other hand,
 in an industry automation scenario involving WoT Things that 
 control some safety-critical infrastructure,
-service availability and protection of the environment controlled by the Thing 
+service availability, access control,
+and protection of the equipment and environment controlled by the Thing 
 may be of the most importance, not privacy.
 
 Deploying the WoT in a distributed system brings additional complexity 
 to the WoT Threat Model and the choice of relevant security mitigations.
 In particular we cannot rely on single standard communication infrastructure 
 and protocol 
-(like HTTPS) to provide end-to-end security between all communicating
+(like HTTP/TLS) to provide end-to-end security between all communicating
 parties.
 Instead we need to support multiple security mechanisms 
 (potentially nested or interdependent) 
-that can be combined into a single end-to-end security solution.  
+that must be somehow combined into a unified security solution.  
  
